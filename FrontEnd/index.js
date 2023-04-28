@@ -81,7 +81,7 @@ async function apiCategoryButtons() {
     };
 };
 
-//Ajout les boutons au DOM
+//Ajout des boutons au DOM
 async function addButtons() {
     const buttonContainer = document.querySelector('.filters');
     await apiCategoryButtons();
