@@ -15,7 +15,7 @@ const projects = await getProjects();// Récupère la liste des projets
 const categories = await getCategories();// Récupère la liste des catégories
 
 //structure HTML des projets dans .gallery par "createElement"
-async function generateProjects(projects){
+export async function generateProjects(projects){
     const divGallery = document.querySelector(".gallery");
     divGallery.innerHTML = '';// évite les doublons aux clicks
 
