@@ -355,7 +355,11 @@ footer nav ul {
 	cursor: pointer;
 }
 .modalGallery .arrowButton {
+	display: none;
 	right: 25px;
+}
+.modalGallery .arrowButton.active {
+	display:flex
 }
 .fa-trash-can {
 	color: white;

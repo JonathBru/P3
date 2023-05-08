@@ -5,7 +5,7 @@ loginForm.addEventListener("submit", (event) => {
     event.preventDefault();//empêcher l'envoi du formulaire par défaut
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    const loginItems = {
+    const logins = {
         email: email,
         password: password
     };
@@ -14,7 +14,7 @@ loginForm.addEventListener("submit", (event) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(loginItems)
+        body: JSON.stringify(logins)
         });
     const loginResponse = promiseAdmin.then((response) =>{
         return response.json();
@@ -23,7 +23,7 @@ loginForm.addEventListener("submit", (event) => {
     loginResponse.then((data) =>{
         if (data.token !== undefined) {
             localStorage.setItem("token", data.token);
-            window.location.href="index.html";
+            document.location.href="index.html";
         } else {
             alert("Erreur dans l’identifiant ou le mot de passe");
         }
