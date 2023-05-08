@@ -12,29 +12,28 @@ async function getProjects() {
 }
 
 const projects = await getProjects();// Récupère la liste des projets
-const categories = await getCategories();// Récupère la liste des catégories
 
 //structure HTML des projets dans .gallery par "createElement"
-export async function generateProjects(projects){
+export async function generateProjects(projects) {
     const divGallery = document.querySelector(".gallery");
-    divGallery.innerHTML = '';// évite les doublons aux clicks
-
+    divGallery.innerHTML = '';// évite les doublons au rechargement de la page
+    
     for (let i = 0; i < projects.length; i++) {
-
+        
         const figure = projects[i];
-
-        const articleElement = document.createElement("figure");
-
+        
+        const projectElement = document.createElement("figure");
+        
         const imageElement = document.createElement("img");
         imageElement.src = figure.imageUrl;
-
+        
         const nomElement = document.createElement("figcaption");
         nomElement.innerText = figure.title;
-
-        divGallery.appendChild(articleElement);
-        articleElement.appendChild(imageElement);
-        articleElement.appendChild(nomElement);
-
+        
+        divGallery.appendChild(projectElement);
+        projectElement.appendChild(imageElement);
+        projectElement.appendChild(nomElement);
+        
     };
 };
 
@@ -42,17 +41,18 @@ export async function generateProjects(projects){
 generateProjects(projects);
 
 //fonction asynchrone pour récupérer la liste des catégories depuis l'API
-async function getCategories(){
+async function getCategories() {
     try{
         const response = await fetch('http://localhost:5678/api/categories');
         const categories = await response.json();
         return categories;
     }
-        catch (error) {
+    catch (error) {
         console.log("dans le catch");
         console.log(error);
     };
 };
+
 
 //Object Set pour stocker les boutons des catégories
 const setCategory = new Set();

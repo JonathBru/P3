@@ -150,6 +150,7 @@ li:hover {
 	background-color: #1D6154;
 	color: #FFFFFF;
 }
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -247,11 +248,11 @@ footer nav ul {
 }
 
 /*"modifier" button for presentation picture*/
-figure a {
+#introduction figure a {
 	margin-top: 15px;
 	margin-left: 57px;
 }
-figure .faOpen {
+#introduction figure .faOpen {
 	margin-left: 0;
 }
 
@@ -322,18 +323,18 @@ figure .faOpen {
 	column-gap: 6px;
 	row-gap: 25px;
 }
-.modalGallery article{
+.modalGallery figure{
 	height: 120px;
 	display: flex;
 	flex-direction: column;
 	position: relative;
 }
-.modalGallery article p {
+.modalGallery figure p {
 	font-family: "Work Sans";
 	font-weight: 400;
 	cursor: pointer;
 }
-.modalGallery article img {
+.modalGallery figure img {
 	width: 100%;
 	object-fit: cover;
 }
@@ -353,9 +354,18 @@ figure .faOpen {
 	gap: 5px;
 	cursor: pointer;
 }
-.fa-up-down-left-right, .fa-trash-can {
+.modalGallery .arrowButton {
+	right: 25px;
+}
+.fa-trash-can {
 	color: white;
 	margin: auto;
+	font-size: 9px;
+}
+.fa-up-down-left-right {
+	color: white;
+	margin: auto;
+	font-size: 11px;
 }
 .modalLine {
 	width: 420px;
@@ -364,7 +374,7 @@ figure .faOpen {
 	margin: 47px 0 38px 0;
 	border-radius: 10px;
 }
-.modalContainer button {
+.addWorkButton {
 	cursor: pointer;
 	border: none;
 	background-color: #1D6154;
