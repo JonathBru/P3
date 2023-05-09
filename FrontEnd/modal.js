@@ -153,10 +153,12 @@ document.addEventListener("DOMContentLoaded", () => {
             button.addEventListener("click", async (event) =>{
                 event.preventDefault();
                 const id = button.getAttribute("id");
-                const deleteResponse = await fetch("http://localhost:5678/api/works/${id}", {
+                const deleteResponse = await fetch("http://localhost:5678/api/works/" + id, {
+
                     method: 'DELETE',
                     headers: {
-                        Authorization: 'Bearer ' + localStorage.getItem("token")
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + localStorage.getItem("token")
                     }
                 }); 
                 if (deleteResponse.ok) {
@@ -190,30 +192,33 @@ addWorkButton.addEventListener("click", () => {
 //fonction pour supprimer tout les projets //
 const deleteAllButton = document.querySelector(".deleteGallery");
 deleteAllButton.addEventListener("click", async () =>{
-    let responseprojects = await fetch("http://localhost:5678/api/works/");
-    let projects = await responseprojects.json();
-    for (const project of projects) {
-        let id = project.id
+    if (confirm("Voulez-vous vraiment supprimer tous les projets ?")) {
+        let responseprojects = await fetch("http://localhost:5678/api/works/");
+        let projects = await responseprojects.json();
+        for (const project of projects) {
+            let id = project.id
 
-        try {
-            const deleteResponse = await fetch("http://localhost:5678/api/works/${id}", {
-                method: 'DELETE',
-                headers: {
-                    'Authorization' :'Bearer ' + localStorage.getItem("token")
-                }
-            });
-            if (deleteResponse.ok) {
-                let deleteResponseAll = await fetch('http://localhost:5678/api/works/');
-                let deletedWorks = await deleteResponseAll.json();
-                generateProjects(deletedWorks);
-                generateModalProjects(deletedWorks);
-            };
-        }
-        catch (error) {
-            console.log(`Error deleting project with id ${id}: ${error}`);
-        }
-    };
-    alert("Toutes les données ont été supprimées.");
+            try {
+                const deleteResponse = await fetch("http://localhost:5678/api/works/" + id, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization' :'Bearer ' + localStorage.getItem("token")
+                    }
+                });
+                if (deleteResponse.ok) {
+                    let deleteResponseAll = await fetch('http://localhost:5678/api/works/');
+                    let deletedWorks = await deleteResponseAll.json();
+                    generateProjects(deletedWorks);
+                    generateModalProjects(deletedWorks);
+                };
+            }
+            catch (error) {
+                console.log(`Error deleting project with id ${id}: ${error}`);
+            }
+        };
+        alert("Toutes les données ont été supprimées.");
+    };    
 });
 
 //modale 2 //

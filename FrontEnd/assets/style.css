@@ -48,16 +48,20 @@ table {
 }
 /** end reset css**/
 body {
-	max-width: 1140px;
+	max-width: 1440px;
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 	background-color: #FFFEF8;
 }
+main {
+	max-width: 1440px;
+	margin: 0 245px;
+}
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 50px 150px
 }
 section {
 	margin: 50px 0
@@ -99,7 +103,9 @@ nav a {
 	color: black;
 	text-decoration: none;
 }
-
+nav a:hover {
+	color: #B1663C;
+}
 li:hover {
 	color: #B1663C;
 }
@@ -108,16 +114,17 @@ li:hover {
 	align-items: center;
 }
 #introduction figure {
-	flex: 1
+	max-width: 474px;
+	margin-right: 72px;
 }
 #introduction img {
 	display: block;
 	margin: auto;
-	width: 80%;
+	width: 100%;
 }
 
 #introduction article {
-	flex: 1
+	max-width: 50%;
 }
 #introduction h2 {
 	margin-bottom: 1em;
@@ -250,7 +257,6 @@ footer nav ul {
 /*"modifier" button for presentation picture*/
 #introduction figure a {
 	margin-top: 15px;
-	margin-left: 57px;
 }
 #introduction figure .faOpen {
 	margin-left: 0;
@@ -498,10 +504,18 @@ footer nav ul {
 	display: flex;
 	flex-direction: column;
 }
-.loginInterface input[type="submit"] {
-	margin-bottom: 28px;
+.loginButton {
+	margin: 37px 0 28px 0;
 	height: 36px;
+	width: 179px;
 	font-size: 14px;
+	font-family: 'Syne';
+	align-self:  center;
+	cursor: pointer;
+	border: none;
+	color: white;
+	background-color: #1D6154;
+	border-radius: 60px;
 }
 .loginInterface a {
 	color: black;

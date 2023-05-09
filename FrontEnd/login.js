@@ -1,7 +1,7 @@
 const loginForm = document.querySelector(".loginForm");
-
+const loginButton = document.querySelector(".loginButton");
 //Push des données du formulaire à l'api
-loginForm.addEventListener("submit", (event) => {
+loginButton.addEventListener("click", (event) => {
     event.preventDefault();//empêcher l'envoi du formulaire par défaut
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
