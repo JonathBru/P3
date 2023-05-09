@@ -23,29 +23,36 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 /** end reset css**/
 body {
 	max-width: 1440px;
@@ -54,20 +61,23 @@ body {
 	font-size: 14px;
 	background-color: #FFFEF8;
 }
+
 main {
 	max-width: 1440px;
 	margin: 0 245px;
 }
+
 header {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 150px
 }
+
 section {
 	margin: 50px 0
 }
 
-h1{
+h1 {
 	display: flex;
 	flex-direction: column;
 	font-family: 'Syne';
@@ -83,40 +93,48 @@ h1 > span {
 ;
 }
 
-h2{
+h2 {
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
 	color: #1D6154
 }
+
 nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
 
 }
+
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
 }
+
 nav a {
 	color: black;
 	text-decoration: none;
 }
+
 nav a:hover {
 	color: #B1663C;
 }
+
 li:hover {
 	color: #B1663C;
 }
+
 #introduction {
 	display: flex;
 	align-items: center;
 }
+
 #introduction figure {
 	max-width: 474px;
 	margin-right: 72px;
 }
+
 #introduction img {
 	display: block;
 	margin: auto;
@@ -126,6 +144,7 @@ li:hover {
 #introduction article {
 	max-width: 50%;
 }
+
 #introduction h2 {
 	margin-bottom: 1em;
 }
@@ -133,6 +152,7 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
 #portfolio h2 {
 	text-align: center;
 }
@@ -144,6 +164,7 @@ li:hover {
 	gap: 10px;
 	margin: 51px auto 51px auto;
 }
+
 .filters button {
 	border:1px solid #1D6154;
 	background: none;
@@ -153,6 +174,7 @@ li:hover {
 	color: #1D6154;
 	padding: 9px 28px;
 }
+
 .filters button.clicked {
 	background-color: #1D6154;
 	color: #FFFFFF;
@@ -168,19 +190,21 @@ li:hover {
 
 .gallery img {
 	width: 100%;
-
+	height: 405px;
 }
 #contact {
 	width: 50%;
 	margin: auto;
 }
+
 #contact > * {
 	text-align: center;
-
 }
-#contact h2{
+
+#contact h2 {
 	margin-bottom: 20px;
 }
+
 #contact form {
 	text-align: left;
 	margin-top:30px;
@@ -188,12 +212,13 @@ li:hover {
 	flex-direction: column;
 }
 
-#contact input, .loginInterface input{
+#contact input, .loginInterface input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
 #contact label, .loginInterface label {
 	margin: 2em 0 1em 0;
 }
@@ -202,7 +227,7 @@ li:hover {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
+input[type="submit"] {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
@@ -217,6 +242,7 @@ footer {
 	background-color: #FFFFFF;
 	height: 60px;
 }
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
@@ -234,15 +260,18 @@ footer nav ul {
 	align-items: center;
 	color: white;
 }
+
 .editorModeHeader .fa-regular {
 	font-size: 20px;
 }
+
 .editorModeHeader p {
 	font-weight: 400;
 	font-size: 16px;
 	padding-left: 12px;
 	padding-right: 21px;
 }
+
 .editorModeHeader button {
 	background: white;
 	border-radius: 60px;
@@ -258,6 +287,7 @@ footer nav ul {
 #introduction figure a {
 	margin-top: 15px;
 }
+
 #introduction figure .faOpen {
 	margin-left: 0;
 }
@@ -268,6 +298,7 @@ footer nav ul {
 	justify-content: center;
 	align-items: center;
 }
+
 .faOpen {
 	font-size: 20px;
 	margin: 0 12px 0 31px;
@@ -294,6 +325,7 @@ footer nav ul {
 	justify-content: center;
 	align-items: center;
 }
+
 .modalContainer {
 	display: flex;
 	flex-direction: column;
@@ -303,17 +335,19 @@ footer nav ul {
 	border-radius: 10px;
 	background-color: #FFFFFF;
 	padding: 30px;
-	
 }
+
 .modalStopIcon {
 	width: 100%;
 	display: flex;
 	justify-content: end;
 }
+
 .fa-xmark {
 	font-size: 20px;
 	cursor: pointer;
 }
+
 .modalContainer h2 {
 	font-family: "Work Sans";
 	font-weight: normal;
@@ -321,6 +355,7 @@ footer nav ul {
 	font-size: 26px;
 	margin-top: 20px;
 }
+
 .modalGallery {
 	margin: 45px auto;
 	width: 420px;
@@ -329,21 +364,25 @@ footer nav ul {
 	column-gap: 6px;
 	row-gap: 25px;
 }
+
 .modalGallery figure{
 	height: 120px;
 	display: flex;
 	flex-direction: column;
 	position: relative;
 }
+
 .modalGallery figure p {
 	font-family: "Work Sans";
 	font-weight: 400;
 	cursor: pointer;
 }
+
 .modalGallery figure img {
 	width: 100%;
 	object-fit: cover;
 }
+
 .modalGallery button{
 	display: flex;
 	position: absolute;
@@ -360,23 +399,28 @@ footer nav ul {
 	gap: 5px;
 	cursor: pointer;
 }
+
 .modalGallery .arrowButton {
 	display: none;
 	right: 25px;
 }
+
 .modalGallery .arrowButton.active {
 	display:flex
 }
+
 .fa-trash-can {
 	color: white;
 	margin: auto;
 	font-size: 9px;
 }
+
 .fa-up-down-left-right {
 	color: white;
 	margin: auto;
 	font-size: 11px;
 }
+
 .modalLine {
 	width: 420px;
 	height: 1px;
@@ -384,6 +428,7 @@ footer nav ul {
 	margin: 47px 0 38px 0;
 	border-radius: 10px;
 }
+
 .addWorkButton {
 	cursor: pointer;
 	border: none;
@@ -396,6 +441,7 @@ footer nav ul {
 	font-size: 14px;
 	font-weight: 700;
 }
+
 .deleteGallery {
 	margin: 23px 0 18px 0;
 	font-style: normal;
@@ -405,13 +451,16 @@ footer nav ul {
 	color: #D65353;
 	cursor: pointer;
 }
+
 /* Modals hidden by default */
 #firstModal {
 	display: none;
 }
+
 #secondModal {
 	display: none;
 }
+
 /* second modal*/
 .fa-arrow-left-long {
 	font-size: 20px;
@@ -421,14 +470,17 @@ footer nav ul {
 	left: -48%;
 	height: 0px;
 }
+
 #secondModal h2 {
 	margin-bottom: 36px;
 }
+
 #secondModal form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
+
 .pictureUpload {
 	display: flex;
 	flex-direction: column;
@@ -439,11 +491,13 @@ footer nav ul {
 	height: 170px;
 	margin-bottom: 30px;
 }
+
 .fa-image {
 	font-size: 55px;
 	color: #B9C5CC;
 	margin: 28px 0 21px 0;
 }
+
 .labelWork {
 	background: #CBD6DC;
 	border-radius: 50px;
@@ -455,14 +509,17 @@ footer nav ul {
 	cursor: pointer;
 	margin-bottom: 7px;
 }
+
 #image {
 	display: none;
 }
+
 .uploadType {
 	font-family: 'Work Sans';
 	font-weight: 400;
 	font-size: 10px;
 }
+
 .labelDescription {
 	font-family: 'Work Sans';
 	font-style: normal;
@@ -471,9 +528,11 @@ footer nav ul {
 	font-size: 14px;
 	margin-bottom: 10px;
 }
+
 #title {
 	margin-bottom: 21px;
 }
+
 #title, #category {
 	border: none;
 	background: #FFFFFF;
@@ -483,6 +542,7 @@ footer nav ul {
 	font-size: 14px;
 	font-family: "Work Sans";
 }
+
 #secondModal button {
 	background-color: #A7A7A7;
 	margin-bottom: 25px;
@@ -495,15 +555,18 @@ footer nav ul {
 	width: 33%;
 	margin: 150px auto 355px auto;
 }
+
 .loginInterface h2 {
 	margin-bottom: 9px;
 	text-align: center;
 }
+
 .loginInterface form {
 	text-align: left;
 	display: flex;
 	flex-direction: column;
 }
+
 .loginButton {
 	margin: 37px 0 28px 0;
 	height: 36px;
@@ -517,6 +580,7 @@ footer nav ul {
 	background-color: #1D6154;
 	border-radius: 60px;
 }
+
 .loginInterface a {
 	color: black;
 	text-align: center;

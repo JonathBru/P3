@@ -1,6 +1,8 @@
 const headerEditor = document.querySelector(".editorModeHeader");
 const logoutLink = document.querySelector(".logInOut");
 const editButtons = document.querySelectorAll(".editorModeButton");
+const filters = document.querySelector(".filters");
+const projectTitle = document.querySelector(".editorModeSwitch");
 
 //affichage des éléments du mode éditeur lorsque le token est enregistré
 function ifUserLoggedIn() {
@@ -10,6 +12,8 @@ function ifUserLoggedIn() {
         editButtons.forEach(function(button){
             button.style.display = "flex";
         });
+        filters.style.display = "none";
+        projectTitle.style.marginBottom = "68px";
     }
     else {
         headerEditor.style.display = "none";

@@ -32,8 +32,7 @@ export async function generateProjects(projects) {
         
         divGallery.appendChild(projectElement);
         projectElement.appendChild(imageElement);
-        projectElement.appendChild(nomElement);
-        
+        projectElement.appendChild(nomElement);  
     };
 };
 
@@ -99,7 +98,6 @@ async function addButtons() {
         });
     });
 };
-
 addButtons();
 
 

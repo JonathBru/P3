@@ -75,6 +75,7 @@ async function generateModalProjects(projects) {
 
         const trashButton = document.createElement("button");
         trashButton.classList.add("trashButton");
+        trashButton.setAttribute('id', projects[i].id);
         const trashIcon = document.createElement("i");
         trashIcon.classList.add("fa-solid", "fa-trash-can");
 
@@ -146,37 +147,36 @@ projectElements.forEach((projectElement) => {
 });
 
 //fonction pour faire fonctionner les trashButtons //
-document.addEventListener("DOMContentLoaded", () => {
-    function deleteProject () {
-        const deleteButton = document.querySelectorAll(".trashButton");
-        deleteButton.forEach((button) => {
-            button.addEventListener("click", async (event) =>{
-                event.preventDefault();
-                const id = button.getAttribute("id");
-                const deleteResponse = await fetch("http://localhost:5678/api/works/" + id, {
+function deleteProject() {
+    const deleteButton = document.querySelectorAll(".trashButton");
+    deleteButton.forEach((button) => {
+        button.addEventListener("click", async (event) =>{
+            event.preventDefault();
+            const id = button.getAttribute("id");
+            const deleteResponse = await fetch("http://localhost:5678/api/works/" + id, {
 
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + localStorage.getItem("token")
-                    }
-                }); 
-                if (deleteResponse.ok) {
-                    let deleteResponseWork = await fetch("http://localhost:5678/api/works/");
-                    let projects = await deleteResponseWork.json();
-                    //on appelle les fonction pour afficher les projets nouvellement mis à jours //
-                    generateProjects(projects);
-                    generateModalProjects(projects);
-                    deleteProject();
-                    }
-                else {
-                        alert ("Erreur");
-                    };
-                });
-            });
-    };
-    deleteProject();
-});
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem("token")
+                }
+               }); 
+            if (deleteResponse.ok) {
+                let deleteResponseWork = await fetch("http://localhost:5678/api/works/");
+                let projects = await deleteResponseWork.json();
+                //on appelle les fonction pour afficher les projets nouvellement mis à jours dynamiquement //
+                generateProjects(projects);
+                generateModalProjects(projects);
+                deleteProject();
+                 }
+            else {
+                    alert ("Erreur");
+            };
+           });
+    });
+};
+deleteProject();
+
 
 const addWorkButton = document.querySelector(".addWorkButton");
 
@@ -241,12 +241,13 @@ let submit = document.getElementById('submit');
 // changer la couleur du Submit si le formulaire est rempli
 const enableButton = () => {
     if (image.value !== '' && title.value !== '' && category.value !== '') {
-      submit.style.backgroundColor = '#1D6154';
+        submit.style.backgroundColor = '#1D6154';
     }
-    image.addEventListener('change', enableButton);
-    title.addEventListener('change', enableButton);
-    category.addEventListener('change', enableButton);
-  };
+};
+
+image.addEventListener('change', enableButton);
+title.addEventListener('change', enableButton);
+category.addEventListener('change', enableButton);
 
 // Apercu de la photo du projets avant émission
 image.addEventListener('change', () => {
@@ -258,21 +259,22 @@ image.addEventListener('change', () => {
     document.querySelector('.uploadType').style.display = "none";
 });
 
-
-
 //Fonction pour faire correspondre l'id de la catégorie à l'option choisie
-const getIdCategory = (category) => {
-    return fetch('http://localhost:5678/api/categories')
-    .then(response => response.json())
-    .then(data => {
+const getIdCategory = async (category) => {
+    try {
+        const response = await fetch('http://localhost:5678/api/categories');
+        const data = await response.json();
         for (let i = 0; i < data.length; i++) {
-            if (data[i].name == category) {
-                return data[i].id
+            if (data[i].id == category) {
+                return data[i].id;
             }
         }
-    })
-    .catch(console.error);
-}
+        throw new Error("Catégorie invalide");
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
 
 //Envoi du formulaire à l'API
 submit.addEventListener('click', async (e) => {
@@ -289,6 +291,10 @@ submit.addEventListener('click', async (e) => {
     formData.append('title', title.value);
 
     let categoryID = await getIdCategory(category.value);
+    if (!categoryID) {
+        alert('Catégorie invalide');
+        return;
+      }
     //Ajout de l'ID de la catégorie
     formData.append('category', categoryID);
 
@@ -323,8 +329,9 @@ submit.addEventListener('click', async (e) => {
                    image.files[0] = null;
                    image.value = '';
             }
-        } else {
+        }else {
             alert(`Erreur lors de l'envoi du formulaire`);
         }
     });
 });
+

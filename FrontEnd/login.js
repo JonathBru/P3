@@ -1,8 +1,9 @@
 const loginForm = document.querySelector(".loginForm");
 const loginButton = document.querySelector(".loginButton");
+
 //Push des données du formulaire à l'api
 loginButton.addEventListener("click", (event) => {
-    event.preventDefault();//empêcher l'envoi du formulaire par défaut
+    event.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const logins = {
@@ -22,7 +23,7 @@ loginButton.addEventListener("click", (event) => {
 
     loginResponse.then((data) =>{
         if (data.token !== undefined) {
-            localStorage.setItem("token", data.token);
+            localStorage.setItem("token", data.token);//stockage du token//
             document.location.href="index.html";
         } else {
             alert("Erreur dans l’identifiant ou le mot de passe");
